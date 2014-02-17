@@ -28,16 +28,33 @@
 			<li class="topmenu"><a href="impressum.html" style="width:125px;height:20px;line-height:20px;"><span>Streams</span></a></li>
 			<li class="toplast"><a href="impressum.html" style="width:125px;height:20px;line-height:20px;"><span>Uploads</span></a></li>
 		</ul>
-		
-		<br />
-		<br />
-		<br />
-		<br />
-		
-		<p>
-			
-		</p>
-		
 	</center>
+	<br />
+	<br />
+	<br />
+	<br />
+	
+	<p>
+		Um die Strava API und ihre Funktionen nutzen zu können, muss als erstes eine Applikation auf Strava registriert werden. Wenn die 
+		Applikation registriert wurde, bekommt man von Strava eine Client ID, ein Client Secret und ein vorgefertigtes Access Token. 
+		Ein Access Token wird benötigt, um Funktionen der API nutzen zu können.
+		<br />
+		Wenn man nun das Framework nutzen möchte, gibt es zwei Möglichkeiten, dies zu tun:
+		<ul>
+			<li>- StaticAuthentication</li>
+			<li>- WebAuthentication</li>
+		</ul>
+		
+		<br />
+		Bei der StaticAuthentication-Methode wird lediglich das öffentliche Access Token verwendet, das dem Entwickler von Strava zugewiesen wurde. 
+		Die durchaus elegantere Lösung (und der eigentliche Prozess von OAUTH2) ist es, das Access Token anhand der Client Id und des Client Secrets 
+		zu laden.
+		
+		Hierfür wird die WebAuthentication-Klasse benötigt. Dieser Klasse übergibt man die CLient Id und das Client Secret. Anschließend wird 
+		der Prozess mit GetTokenAsync() gestartet. Dieser Vorgang öffnet ein Browser-Fenster, bei dem man bestätigen muss, dass die Applikation 
+		Zugriff auf die Strava-Daten bekommt. Sobald man auf den Button drückt und die Applikation authorisiert, erfolgt ein Callback-Aufruf. 
+		Um diesen Aufruf entgegen nehmen zu können, muss auf dem lokalen COmputer ein WebServer gestartet werden. Um diesen WebServer starten zu können, 
+		muss das Programm mit Admin-Rechten gestartet werden.
+	</p>
 </body>
 </html>
